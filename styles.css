@@ -1,0 +1,184 @@
+.container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+
+}
+
+body {
+  background-color: #393E46;
+}
+
+h1 {
+  margin: 10px;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 6rem;
+  color: #4ECCA3;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  font-family: 'Indie Flower', cursive;
+  margin: 15px;
+}
+
+img {
+  width: 70%;
+}
+
+.resetgame-button-invisible{
+visibility: hidden;
+position: absolute;
+}
+
+.resetgame-button-visible {
+  text-decoration: none;
+  border: 3px solid #FFDE00;
+  color: transparent;
+  padding: 20px 40px;
+  font-size: 26px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+  top: 30px;
+
+}
+
+.resetgame-button-visible:before {
+  content: "Още една игра?";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFDE00;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotatey(0);
+  opacity: 0;
+}
+.resetgame-button-visible:hover:before {
+  transform: scale(1) rotatey(360deg);
+  left: 0;
+  opacity: 1;
+}
+
+.resetgame-button-visible:after {
+  content: "Още една игра?";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FFDE00;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotatey(0);
+  opacity: 1;
+}
+
+.resetgame-button-visible:hover:after {
+  transform: scale(0) rotatey(360deg);
+  left: -100%;
+  opacity: 0;
+}
+
+.wins {
+  font-size: 1.5rem;
+}
+
+.rounds-played {
+  margin: 15px 0 0;
+}
+
+.newdraw-button {
+  text-decoration: none;
+  border: 3px solid #4ECCA3;
+  color: transparent;
+  padding: 20px 40px;
+  font-size: 26px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+  top: 30px;
+}
+
+.newdraw-button:before {
+  content: "Хвърли заровете";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4ECCA3;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotatey(0);
+  opacity: 0;
+}
+.newdraw-button:hover:before {
+  transform: scale(1) rotatey(360deg);
+  left: 0;
+  opacity: 1;
+}
+
+.newdraw-button:after {
+  content: "Хвърли заровете";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4ECCA3;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotatey(0);
+  opacity: 1;
+}
+
+.newdraw-button:hover:after {
+  transform: scale(0) rotatey(360deg);
+  left: -100%;
+  opacity: 0;
+}
+
+footer {
+  margin-top: 5%;
+  color: #EEEEEE;
+  text-align: center;
+  font-family: 'Indie Flower', cursive;
+
+}
