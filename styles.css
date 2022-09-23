@@ -109,6 +109,7 @@ position: absolute;
 }
 
 .rounds-played {
+  color: #EEEEEE;
   margin: 15px 0 0;
 }
 
@@ -174,6 +175,22 @@ position: absolute;
   transform: scale(0) rotatey(360deg);
   left: -100%;
   opacity: 0;
+}
+
+.player1-wins-green {
+  color: #06FF00;
+}
+
+.player1-wins-red {
+  color: #FF1700;
+}
+
+.player2-wins-green {
+  color: #06FF00;
+}
+
+.player2-wins-red {
+  color: #FF1700;
 }
 
 footer {
