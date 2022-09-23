@@ -72,6 +72,22 @@ function randomNumbers() {
   }
 }
 
+//Chage Color Of WIns
+function colorWins() {
+  if (player1Wins > player2Wins) {
+    player1WinsText.classList.add("player1-wins-green");
+    player2WinsText.classList.add("player2-wins-red");
+  } else if (player1Wins < player2Wins) {
+    player1WinsText.classList.add("player1-wins-red");
+    player2WinsText.classList.add("player2-wins-green");
+  } else {
+    player1WinsText.classList.add("player1-wins-green");
+    player2WinsText.classList.add("player2-wins-green");
+    player1WinsText.classList.remove("player1-wins-red");
+    player2WinsText.classList.remove("player2-wins-red");
+  }
+}
+
 //Game Over Events
 function setGameOver() {
   document.querySelector(".rounds-played").innerHTML = "Край на играта";
@@ -105,36 +121,3 @@ function setGameOver() {
       // resetGameButton.classList.add("resetgame-button-invisible");
 
     }
-
-
-
-
-
-
-
-
-
-//
-// var randomNumber1 = Math.floor(Math.random() * 6) + 1; //1-6
-//
-// var randomImage1Source = "images/dice" + randomNumber1 + ".png"; //images/dice1.png - images/dice6.png
-//
-// document.querySelectorAll("img")[0].setAttribute("src", randomImage1Source);
-//
-//
-// var randomNumber2 = Math.floor(Math.random() * 6 ) + 1;
-//
-// var randomImage2Source = "images/dice" + randomNumber2 + ".png"; //images/dice1.png - images/dice6.png
-//
-// document.querySelectorAll("img")[1].setAttribute("src", randomImage2Source);
-//
-//
-//
-//   if (randomNumber1 > randomNumber2) {
-//     document.querySelector("h1").innerHTML = "🚩 Player 1 wins!";
-//   }
-//   else if (randomNumber1 < randomNumber2) {
-//     document.querySelector("h1").innerHTML = "Player 2 wins! 🚩";
-//   } else {
-//     document.querySelector("h1").innerHTML = "- Draw -";
-//   }
