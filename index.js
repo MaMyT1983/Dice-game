@@ -13,6 +13,7 @@ const roundsPlayed = document.querySelector(".rounds-played");
 //Listen For Mouse Clicks
 newDrawButton.addEventListener("click", function() {
   randomNumbers();
+  colorWins();
   onClick();
 });
 
@@ -28,6 +29,7 @@ function keyPressed(key) {
   switch (key) {
     case "r":
       randomNumbers();
+      colorWins();
       onClick();
       break;
     default:
