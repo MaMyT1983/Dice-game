@@ -1,4 +1,5 @@
 var clicks = 0;
+var blockKeys = false;
 var player1Wins = 0;
 var player2Wins = 0;
 const h1 = document.querySelector("h1");
@@ -17,37 +18,45 @@ newDrawButton.addEventListener("click", function() {
   onClick();
 });
 
-//Listen For Key "r" Clicks
+//Listen For Key "r" Press
 document.addEventListener("keydown", function(event) {
   keyPressed(event.key);
-
-});
-
+}, true);
 
 function keyPressed(key) {
+ if (blockKeys === false) {
+    switch (key) {
+      case "r":
+        randomNumbers();
+        colorWins();
+        onClick();
+        break;
+      default:
+        console.log(key);
+  } 
+} else {};
+ 
+  if (blockKeys === true) {
+    switch (key) {
+      case "s":
+        resetGame();
+        break;
+        default:
+          console.log(key);
+    }
+  } else {}
 
-  switch (key) {
-    case "r":
-      randomNumbers();
-      colorWins();
-      onClick();
-      break;
-    default:
-      console.log(key);
-
-  }
 }
 
 //Roll Button Clicks (Rounds Played)  Counter
 function onClick() {
   clicks += 1;
   roundsPlayed.innerHTML = ("Хвърляния: " + clicks);
-
-  if (clicks > 8) {
+  if (clicks > 9) {
+    blockKeys = true;
     setGameOver();
   } else {}
 };
-
 
 
 //Generate Random Numbers and Winner Each Round
@@ -60,13 +69,13 @@ function randomNumbers() {
 
   if (randomNumber1 > randomNumber2) {
     player1Wins += 1;
-    h1.innerHTML = "🏁 Играч 1 спечели!";
-    player1WinsText.innerHTML = "Победи: " + player1Wins;
+    h1.innerHTML = "🎲 Точка за играч 1";
+    player1WinsText.innerHTML = "Точки: " + player1Wins;
 
   } else if (randomNumber1 < randomNumber2) {
     player2Wins += 1;
-    h1.innerHTML = "Играч 2 спечели! 🏁";
-    player2WinsText.innerHTML = "Победи: " + player2Wins;
+    h1.innerHTML = "Точка за играч 2 🎲";
+    player2WinsText.innerHTML = "Точки: " + player2Wins;
 
   } else {
     h1.innerHTML = "😊 Равно 😊";
@@ -95,12 +104,13 @@ function setGameOver() {
   document.querySelector(".rounds-played").innerHTML = "Край на играта";
 
   if (player1Wins > player2Wins) {
-    h1.innerHTML = "🏁 Играч 1 спечели: " + player1Wins + " победи!";
+    h1.innerHTML = "🎲 Играч 1 спечели: " + player1Wins + " Точки!";
   } else if (player1Wins < player2Wins) {
-    h1.innerHTML = "Играч 2 спечели: " + player2Wins + " победи! 🏁";
+    h1.innerHTML = "Играч 2 спечели: " + player2Wins + " Точки! 🎲";
   } else {
     h1.innerHTML = "😊 Равно 😊"
   }
+  
 
   clicks = 0;
   newDrawButton.disabled = true;
@@ -108,18 +118,25 @@ function setGameOver() {
   resetGameButton.classList.remove("resetgame-button-invisible");
   resetGameButton.addEventListener("click", resetGame);
 
-    }
+}
 
 // Reset Game Events
-    function resetGame() {
-      window.location.reload();
+function resetGame() {
+  window.location.reload();
+}
 
-      // h1.innerHTML = "Хвърляне на зарове";
-      // player1WinsText.innerHTML = "Победи: 0";
-      // player2WinsText.innerHTML = "Победи: 0";
-      // roundsPlayed.innerHTML = "Кой ще победи от 9 рунда?";
-      // newDrawButton.disabled = false;
-      // resetGameButton.classList.remove("resetgame-button-visible");
-      // resetGameButton.classList.add("resetgame-button-invisible");
 
-    }
+
+// var controller = new AbortController();
+    // document.addEventListener('keydown', function() {
+    //   controller.abort();
+  
+    // });
+
+     // document.removeEventListener('keydown', keyPressed(), true);
+  //   document.onkeydown = function (key) {
+  //   return false;
+  // }
+
+    // navigator.keyboard.unlock();
+      // navigator.keyboard.lock();
