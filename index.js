@@ -48,6 +48,21 @@ function keyPressed(key) {
 
 }
 
+//Listen for Button to Enter Player Names
+$('.name1-button').on('click', function() {
+  var name = $('.name1').val();
+  $('.p1-name').html(name);
+  $('.name1').hide();
+  $('.name1-button').hide();
+});
+
+$('.name2-button').on('click', function() {
+  var name = $('.name2').val();
+  $('.p2-name').html(name);
+  $('.name2').hide();
+  $('.name2-button').hide();
+});
+
 //Roll Button Clicks (Rounds Played)  Counter
 function onClick() {
   clicks += 1;
@@ -69,12 +84,12 @@ function randomNumbers() {
 
   if (randomNumber1 > randomNumber2) {
     player1Wins += 1;
-    h1.innerHTML = "🎲 Точка за играч 1";
+    h1.innerHTML = "🎲 Точка за " + $('.p1-name').html();
     player1WinsText.innerHTML = "Точки: " + player1Wins;
 
   } else if (randomNumber1 < randomNumber2) {
     player2Wins += 1;
-    h1.innerHTML = "Точка за играч 2 🎲";
+    h1.innerHTML = "Точка за " + $('.p2-name').html() + " 🎲";
     player2WinsText.innerHTML = "Точки: " + player2Wins;
 
   } else {
@@ -104,39 +119,38 @@ function setGameOver() {
   document.querySelector(".rounds-played").innerHTML = "Край на играта";
 
   if (player1Wins > player2Wins) {
-    h1.innerHTML = "🎲 Играч 1 спечели: " + player1Wins + " Точки!";
+    h1.innerHTML = "🎲 " + $('.p1-name').html() + " спечели с " + player1Wins + " точки!";
   } else if (player1Wins < player2Wins) {
-    h1.innerHTML = "Играч 2 спечели: " + player2Wins + " Точки! 🎲";
+    h1.innerHTML = $('.p2-name').html() + " спечели с " + player2Wins + " точки! 🎲";
   } else {
     h1.innerHTML = "😊 Равно 😊"
   }
   
 
-  clicks = 0;
+ 
   newDrawButton.disabled = true;
   resetGameButton.classList.add("resetgame-button-visible");
   resetGameButton.classList.remove("resetgame-button-invisible");
   resetGameButton.addEventListener("click", resetGame);
+  clicks = 0;
 
 }
 
 // Reset Game Events
 function resetGame() {
-  window.location.reload();
+  $('h1').text('Хвърляне на зарове');
+  resetGameButton.classList.remove("resetgame-button-visible");
+  resetGameButton.classList.add("resetgame-button-invisible");
+  player1WinsText.classList.remove("player1-wins-red");
+  player2WinsText.classList.remove("player2-wins-red");
+  player1WinsText.classList.remove("player1-wins-green");
+  player2WinsText.classList.remove("player2-wins-green");
+  player1Wins = 0;
+  player1WinsText.innerHTML = "Точки: " + player1Wins;
+  player2Wins = 0;
+  player2WinsText.innerHTML = "Точки: " + player2Wins;
+  blockKeys = false;
+  newDrawButton.disabled = false;
+  $('.rounds-played').text('Кой ще победи от 10 рунда?');
+   
 }
-
-
-
-// var controller = new AbortController();
-    // document.addEventListener('keydown', function() {
-    //   controller.abort();
-  
-    // });
-
-     // document.removeEventListener('keydown', keyPressed(), true);
-  //   document.onkeydown = function (key) {
-  //   return false;
-  // }
-
-    // navigator.keyboard.unlock();
-      // navigator.keyboard.lock();
