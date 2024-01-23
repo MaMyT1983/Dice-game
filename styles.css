@@ -1,6 +1,8 @@
 
 body {
-  background-color: #393E46;
+  background: linear-gradient(300deg, #280945, #013f3f, #0b1423);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
 }
 
 h1 {
