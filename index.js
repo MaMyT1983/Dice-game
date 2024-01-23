@@ -138,6 +138,7 @@ function setGameOver() {
 
 // Reset Game Events
 function resetGame() {
+  // window.location.reload();
   $('h1').text('Хвърляне на зарове');
   resetGameButton.classList.remove("resetgame-button-visible");
   resetGameButton.classList.add("resetgame-button-invisible");
@@ -154,3 +155,19 @@ function resetGame() {
   $('.rounds-played').text('Кой ще победи от 10 рунда?');
    
 }
+
+
+
+// var controller = new AbortController();
+    // document.addEventListener('keydown', function() {
+    //   controller.abort();
+  
+    // });
+
+     // document.removeEventListener('keydown', keyPressed(), true);
+  //   document.onkeydown = function (key) {
+  //   return false;
+  // }
+
+    // navigator.keyboard.unlock();
+      // navigator.keyboard.lock();
