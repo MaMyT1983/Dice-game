@@ -32,6 +32,7 @@ img {
   text-align: center;
   display: inline-block;
   width: 25%;
+
 }
 
 .name1 {
@@ -47,6 +48,22 @@ img {
   display: block;
   margin: auto;
 }
+
+.player1 {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.player2 {
+  display: flex;
+  flex-flow: row-reverse wrap;
+  justify-content: center;
+}
+
+
+
 
 .name1-button {
   align-items: center;
