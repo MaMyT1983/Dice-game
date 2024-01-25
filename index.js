@@ -7,6 +7,7 @@ var randomNumber3 = 0;
 var randomNumber4 = 0;
 var randomEmblem3 = '';
 var randomEmblem4 = '';
+var game2Start = 0;
 const h1 = document.querySelector("h1");
 const newDrawButton = document.querySelector(".newdraw-button");
 const resetGameButton = document.querySelector(".resetgame-button-invisible");
@@ -15,7 +16,9 @@ const player2WinsText = document.querySelector(".player2-wins");
 const roundsPlayed = document.querySelector(".rounds-played");
 
 randomEmblem();
+playerNames();
 
+function addListener () {
 //Listen For Mouse Clicks
 newDrawButton.addEventListener("click", function() {
   randomNumbers();
@@ -23,11 +26,10 @@ newDrawButton.addEventListener("click", function() {
   onClick();
 });
 
-
 //Listen For Key "r" Press
 document.addEventListener("keydown", function(event) {
   keyPressed(event.key);
-}, true);
+});
 
 function keyPressed(key) {
  if (blockKeys === false) {
@@ -53,24 +55,36 @@ function keyPressed(key) {
   } else {}
 
 }
-
+}
 
 //Listen for Button to Enter Player Names
-$('.name1-button').on('click', function() {
-  var name = $('.name1').val();
-  $('.p1-name').html(name);
-  $('.name1').hide();
-  $('.name1-button').hide();
-  $('.p1-emblem').html(randomEmblem3);
-});
-
-$('.name2-button').on('click', function() {
-  var name = $('.name2').val();
-  $('.p2-name').html(name);
-  $('.name2').hide();
-  $('.name2-button').hide();
-  $('.p2-emblem').html(randomEmblem4);
-});
+function playerNames () {
+  $('.name1-button').on('click', function() {
+    var name = $('.name1').val();
+    $('.p1-name').html(name);
+    $('.name1').hide();
+    $('.name1-button').hide();
+    $('.p1-emblem').html(randomEmblem3);
+    $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ЧОВЕЧЕ' + randomEmblem4);
+    game2Start ++;
+   if (game2Start === 2) {
+    addListener();
+   } else {}
+  });
+  
+  $('.name2-button').on('click', function() {
+    var name = $('.name2').val();
+    $('.p2-name').html(name);
+    $('.name2').hide();
+    $('.name2-button').hide();
+    $('.p2-emblem').html(randomEmblem4);
+    $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ЧОВЕЧЕ' + randomEmblem4);
+    game2Start ++;
+    if (game2Start === 2) {
+      addListener();
+     } else {}
+  });
+}
 
 
 //Roll Button Clicks (Rounds Played)  Counter
@@ -89,8 +103,6 @@ function randomEmblem () {
   randomNumber4 = Math.floor(Math.random() * 5) // random 0-4
   randomEmblem3 = emblemArray[randomNumber3];
   randomEmblem4 = emblemArray[randomNumber4];
-  console.log(randomNumber3);
-  console.log(randomEmblem);
 }
 
 //Generate Random Numbers and Winner Each Round
@@ -140,8 +152,10 @@ function setGameOver() {
 
   if (player1Wins > player2Wins) {
     h1.innerHTML = randomEmblem3 + " " + $('.p1-name').html() + " спечели с " + player1Wins + " точки!";
+    $('footer').html('НЕ СЕ СЪРДИ ' + $('.p2-name').html() + randomEmblem4)
   } else if (player1Wins < player2Wins) {
     h1.innerHTML = $('.p2-name').html() + " спечели с " + player2Wins + " точки! " + randomEmblem4;
+    $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ' + $('.p1-name').html())
   } else {
     h1.innerHTML = "😊 Равно 😊"
   }
@@ -171,6 +185,7 @@ function resetGame() {
   blockKeys = false;
   newDrawButton.disabled = false;
   $('.rounds-played').text('Кой ще победи от 10 рунда?');
+  $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ЧОВЕЧЕ' + randomEmblem4);
    
 }
 
