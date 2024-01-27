@@ -97,9 +97,9 @@ function onClick() {
 };
 
 function randomEmblem () {
-  emblemArray = [' 🐒 ', ' 🐍 ', ' 🦗 ', ' 🐯 ', ' 🦩 '];
-  randomNumber3 = Math.floor(Math.random() * 5) // random 0-4
-  randomNumber4 = Math.floor(Math.random() * 5) // random 0-4
+  emblemArray = [' 🐒 ', ' 🐍 ', ' 🦗 ', ' 🐯 ', ' 🦩 ', '🐷', '🦏', '🐔', '🐢', '🦆', '🐼'];
+  randomNumber3 = Math.floor(Math.random() * 11) // random 0-10
+  randomNumber4 = Math.floor(Math.random() * 11) // random 0-10
   randomEmblem3 = emblemArray[randomNumber3];
   randomEmblem4 = emblemArray[randomNumber4];
 }
