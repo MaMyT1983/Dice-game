@@ -1,33 +1,33 @@
 var clicks = 0;
 var blockKeys = false;
-var player1Wins = 0;
-var player2Wins = 0;
+var p1Wins = 0;
+var p2Wins = 0;
 var emblemArray = [];
 var randomNumber3 = 0;
 var randomNumber4 = 0;
 var randomEmblem3 = '';
 var randomEmblem4 = '';
 var game2Start = 0;
-const h1 = document.querySelector("h1");
-const newDrawButton = document.querySelector(".newdraw-button");
-const resetGameButton = document.querySelector(".resetgame-button-invisible");
-const player1WinsText = document.querySelector(".player1-wins");
-const player2WinsText = document.querySelector(".player2-wins");
-const roundsPlayed = document.querySelector(".rounds-played");
+const h1 = $("h1");
+const newDrawButton = $(".newdraw-button");
+const resetGameButton = $(".resetgame-button-invisible");
+const p1WinsText = $(".player1-wins");
+const p2WinsText = $(".player2-wins");
+const roundsPlayed = $(".rounds-played");
 
 randomEmblem();
 playerNames();
 
-function addListener () {
 //Listen For Mouse Clicks
-newDrawButton.addEventListener("click", function() {
+function addListener () {
+  newDrawButton.on("click", function() {
   randomNumbers();
   colorWins();
   onClick();
 });
 
 //Listen For Key "r" Press
-document.addEventListener("keydown", function(event) {
+$(document).on("keydown", function(event) {
   keyPressed(event.key);
 });
 
@@ -54,8 +54,7 @@ function keyPressed(key) {
     }
   } else {}
 
-}
-}
+}}
 
 //Listen for Button to Enter Player Names
 function playerNames () {
@@ -90,7 +89,7 @@ function playerNames () {
 //Roll Button Clicks (Rounds Played)  Counter
 function onClick() {
   clicks += 1;
-  roundsPlayed.innerHTML = ("Хвърляния: " + clicks);
+  roundsPlayed.html('Хвърляния: ' + clicks);
   if (clicks > 9) {
     blockKeys = true;
     setGameOver();
@@ -105,94 +104,95 @@ function randomEmblem () {
   randomEmblem4 = emblemArray[randomNumber4];
 }
 
+
 //Generate Random Numbers and Winner Each Round
 function randomNumbers() {
   var randomNumber1 = Math.floor(Math.random() * 6) + 1; //random 1-6
   var randomNumber2 = Math.floor(Math.random() * 6) + 1; //1-6
 
-
-  document.querySelector(".img1").src = ("images/dice" + randomNumber1 + ".png"); //images/dice1.png-images/dice6.png
-  document.querySelector(".img2").src = ("images/dice" + randomNumber2 + ".png");
+  $(".img1").attr('src', "images/dice" + randomNumber1 + ".png"); //images/dice1.png-images/dice6.png
+  $(".img2").attr('src', "images/dice" + randomNumber2 + ".png");
 
   if (randomNumber1 > randomNumber2) {
-    player1Wins += 1;
-    h1.innerHTML = randomEmblem3 + " Точка за " + $('.p1-name').html();
-    player1WinsText.innerHTML = "Точки: " + player1Wins;
+    p1Wins += 1;
+    h1.html(randomEmblem3 + " Точка за " + $('.p1-name').html());
+    p1WinsText.html('Точки: ' + p1Wins);
 
   } else if (randomNumber1 < randomNumber2) {
-    player2Wins += 1;
-    h1.innerHTML = "Точка за " + $('.p2-name').html() + randomEmblem4;
-    player2WinsText.innerHTML = "Точки: " + player2Wins;
+    p2Wins += 1;
+    h1.html("Точка за " + $('.p2-name').html() + randomEmblem4);
+    p2WinsText.html("Точки: " + p2Wins);
 
   } else {
-    h1.innerHTML = "😊 Равно 😊";
+    h1.html("😊 Равно 😊");
 
   }
 }
+
 
 //Chage Color Of WIns
 function colorWins() {
-  if (player1Wins > player2Wins) {
-    player1WinsText.classList.add("player1-wins-green");
-    player2WinsText.classList.add("player2-wins-red");
-  } else if (player1Wins < player2Wins) {
-    player1WinsText.classList.add("player1-wins-red");
-    player2WinsText.classList.add("player2-wins-green");
+  if (p1Wins > p2Wins) {
+    p1WinsText.addClass("player1-wins-green");
+    p2WinsText.addClass("player2-wins-red");
+  } else if (p1Wins < p2Wins) {
+    p1WinsText.addClass("player1-wins-red");
+    p2WinsText.addClass("player2-wins-green");
   } else {
-    player1WinsText.classList.add("player1-wins-green");
-    player2WinsText.classList.add("player2-wins-green");
-    player1WinsText.classList.remove("player1-wins-red");
-    player2WinsText.classList.remove("player2-wins-red");
+    p1WinsText.addClass("player1-wins-green");
+    p2WinsText.addClass("player2-wins-green");
+    p1WinsText.removeClass("player1-wins-red");
+    p2WinsText.removeClass("player2-wins-red");
   }
 }
+
 
 //Game Over Events
 function setGameOver() {
-  document.querySelector(".rounds-played").innerHTML = "Край на играта";
+  $(".rounds-played").html("Край на играта");
 
-  if (player1Wins > player2Wins) {
-    h1.innerHTML = randomEmblem3 + " " + $('.p1-name').html() + " спечели с " + player1Wins + " точки!";
+  if (p1Wins > p2Wins) {
+    h1.html(randomEmblem3 + " " + $('.p1-name').html() + " спечели с " + p1Wins + " точки!");
     $('footer').html('НЕ СЕ СЪРДИ ' + $('.p2-name').html() + randomEmblem4)
-  } else if (player1Wins < player2Wins) {
-    h1.innerHTML = $('.p2-name').html() + " спечели с " + player2Wins + " точки! " + randomEmblem4;
+  } else if (p1Wins < p2Wins) {
+    h1.html($('.p2-name').html() + " спечели с " + p2Wins + " точки! " + randomEmblem4);
     $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ' + $('.p1-name').html())
   } else {
-    h1.innerHTML = "😊 Равно 😊"
+    h1.html('😊 Равно 😊');
   }
   
-  newDrawButton.disabled = true;
-  resetGameButton.classList.add("resetgame-button-visible");
-  resetGameButton.classList.remove("resetgame-button-invisible");
-  resetGameButton.addEventListener("click", resetGame);
+  newDrawButton.prop('disabled', true);
+  resetGameButton.addClass("resetgame-button-visible");
+  resetGameButton.removeClass("resetgame-button-invisible");
+  resetGameButton.on("click", resetGame);
   clicks = 0;
-
 }
+
 
 // Reset Game Events
 function resetGame() {
   // window.location.reload();
-  $('h1').text('Хвърляне на зарове');
-  resetGameButton.classList.remove("resetgame-button-visible");
-  resetGameButton.classList.add("resetgame-button-invisible");
-  player1WinsText.classList.remove("player1-wins-red");
-  player2WinsText.classList.remove("player2-wins-red");
-  player1WinsText.classList.remove("player1-wins-green");
-  player2WinsText.classList.remove("player2-wins-green");
-  player1Wins = 0;
-  player1WinsText.innerHTML = "Точки: " + player1Wins;
-  player2Wins = 0;
-  player2WinsText.innerHTML = "Точки: " + player2Wins;
+  $(h1).text('Хвърляне на зарове');
+  resetGameButton.removeClass("resetgame-button-visible");
+  resetGameButton.addClass("resetgame-button-invisible");
+  p1WinsText.removeClass("player1-wins-red");
+  p2WinsText.removeClass("player2-wins-red");
+  p1WinsText.removeClass("player1-wins-green");
+  p2WinsText.removeClass("player2-wins-green");
+  p1Wins = 0;
+  $(p1WinsText).html('Точки: ' + p1Wins);
+  p2Wins = 0;
+  p2WinsText.html('Точки: ' + p2Wins);
   blockKeys = false;
-  newDrawButton.disabled = false;
+  newDrawButton.prop('disabled', false);
   $('.rounds-played').text('Кой ще победи от 10 рунда?');
   $('footer').html(randomEmblem3 + 'НЕ СЕ СЪРДИ ЧОВЕЧЕ' + randomEmblem4);
-   
 }
 
 
 
 // var controller = new AbortController();
-    // document.addEventListener('keydown', function() {
+    // $(document).on('keydown', function() {
     //   controller.abort();
   
     // });
