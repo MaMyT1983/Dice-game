@@ -386,6 +386,7 @@ ul {
     background: linear-gradient(300deg, #036515, #03013b, #08001f);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
+    font-family: cursive;
   }
   
   .dice {
@@ -476,6 +477,7 @@ ul {
     background: linear-gradient(300deg, #62499d, #013f14, #23012f);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
+    font-family: cursive;
   }
   
   
