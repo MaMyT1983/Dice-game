@@ -1,0 +1,571 @@
+
+body {
+  background: linear-gradient(300deg, #280945, #013f3f, #0b1423);
+  background-size: 180% 180%;
+  animation: gradient-animation 18s ease infinite;
+  margin: 0px;
+  font-family: cursive;
+}
+
+h1 {
+  margin: 5px 0px 15px;
+  font-family: 'Lobster', cursive;
+  text-shadow: 5px 0 #232931;
+  font-size: 4.5rem;
+  color: #4ECCA3;
+}
+
+p {
+  font-size: 2rem;
+  color: #4ECCA3;
+  /* font-family: 'Indie Flower', cursive; */
+  margin: 10px;
+}
+
+img {
+  width: 70%;
+}
+
+.container {
+  height: 100vh;
+  text-align: center;
+
+}
+
+.dice {
+  text-align: center;
+  display: inline-block;
+  width: 18%;
+
+}
+
+.name1 {
+  background-color: #cbfdff;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.name2 {
+  background-color: #f7f5d4;
+  height: 20px;
+  margin: auto;
+  text-align: center;
+}
+
+.player {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+}
+
+.input {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.name1-button {
+  align-items: center;
+  background-image: linear-gradient(144deg,#bde7ed, #5193e3 50%,#442ccf);
+  border: 2px solid #69667a;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #100c0c;
+  display: inline-block;
+  font-family: Phantomsans, sans-serif;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1em;
+  width: 40%;
+  padding: 0.5rem;
+  margin-top: 10px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.name1-button:active,
+.name1-button:hover {
+  background-image: linear-gradient(144deg,#00DDEB, #188bb1 50%,#9340ff);
+  border: 2px solid #442ccf;
+  outline: 0;
+}
+
+.name1-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 50%;
+  height: 50%;
+  transition: 300ms;
+}
+
+.name1-button:hover span {
+  background: none;
+}
+
+.wins {
+  font-size: 1.5rem;
+}
+
+.rounds-played {
+  color: #EEEEEE;
+  margin: 10px 0px 0px;
+  font-size: 1.5rem;
+}
+
+.name2-button {
+  align-items: center;
+  background-image: linear-gradient(144deg,#cac26c, #e3be51 50%,#cf4a2c);
+  border: 2px solid #69667a;
+  border-radius: 8px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  box-sizing: border-box;
+  color: #100c0c;
+  display: inline-block;
+  font-family: Phantomsans, sans-serif;
+  font-size: 1rem;
+  justify-content: center;
+  line-height: 1em;
+  width: 40%;
+  padding: 0.5rem;
+  margin-top: 10px;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.name2-button:active,
+.name2-button:hover {
+  background-image: linear-gradient(144deg,#e3e623, #b18618 50%,#f93d29);
+  border: 2px solid #e01919;
+  outline: 0;
+}
+
+.name2-button span {
+  background-color: rgb(5, 6, 45);
+  padding: 16px 24px;
+  border-radius: 6px;
+  width: 50%;
+  height: 50%;
+  transition: 300ms;
+}
+
+.name2-button:hover span {
+  background: none;
+}
+
+.newdraw-button {
+  text-decoration: none;
+  border: 3px solid #4ECCA3;
+  color: transparent;
+  padding: 20px 40px;
+  font-size: 26px;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 0.5s;
+  position: relative;
+  top: 30px;
+}
+
+.newdraw-button:before {
+  content: "Roll the dice";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4ECCA3;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 100%;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(0) rotatey(0);
+  opacity: 0;
+}
+.newdraw-button:hover:before {
+  transform: scale(1) rotatey(360deg);
+  left: 0;
+  opacity: 1;
+}
+
+.newdraw-button:after {
+  content: "Roll the dice";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #4ECCA3;
+  background: rgb(34, 34, 34);
+  font-size: 28px;
+  top: 0;
+  left: 0;
+  font-family: sans-serif;
+  letter-spacing: 5px;
+  transition: all 1s;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  transform: scale(1) rotatey(0);
+  opacity: 1;
+}
+
+.newdraw-button:hover:after {
+  transform: scale(0) rotatey(360deg);
+  left: -100%;
+  opacity: 0;
+}
+
+.resetgame-button-invisible{
+  visibility: hidden;
+  position: absolute;
+  }
+  
+  .resetgame-button-visible {
+    text-decoration: none;
+    border: 3px solid #FFDE00;
+    color: transparent;
+    padding: 20px 40px;
+    font-size: 26px;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    transition: all 0.5s;
+    position: relative;
+    top: 30px;
+    margin-left: 20px;
+  
+  }
+  
+  .resetgame-button-visible:before {
+    content: "One more game?";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFDE00;
+    background: rgb(34, 34, 34);
+    font-size: 28px;
+    top: 0;
+    left: 100%;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    transition: all 1s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: scale(0) rotatey(0);
+    opacity: 0;
+  }
+
+  .resetgame-button-visible:hover:before {
+    transform: scale(1) rotatey(360deg);
+    left: 0;
+    opacity: 1;
+  }
+  
+  .resetgame-button-visible:after {
+    content: "One more game?";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFDE00;
+    background: rgb(34, 34, 34);
+    font-size: 28px;
+    top: 0;
+    left: 0;
+    font-family: sans-serif;
+    letter-spacing: 5px;
+    transition: all 1s;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    transform: scale(1) rotatey(0);
+    opacity: 1;
+  }
+  
+  .resetgame-button-visible:hover:after {
+    transform: scale(0) rotatey(360deg);
+    left: -100%;
+    opacity: 0;
+  }
+
+.player1-wins-green {
+  color: #06FF00;
+}
+
+.player1-wins-red {
+  color: #FF1700;
+}
+
+.player2-wins-green {
+  color: #06FF00;
+}
+
+.player2-wins-red {
+  color: #FF1700;
+}
+
+footer {
+  margin-top: 4%;
+  color: #EEEEEE;
+  text-align: center;
+  /* font-family: 'Indie Flower', cursive; */
+}
+
+hr {
+  width: 15%;
+  margin: 5px auto 5px;
+  border: 1px solid #237486;
+}
+
+.lang-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #EEEEEE;
+  /* font-family: 'Indie Flower', cursive; */
+}
+
+.lang {
+  margin-right: 2rem;
+}
+
+.h1-info {
+  color: #0f9e9e;
+}
+
+h2 {
+  margin-left: 2.5rem;
+  color: #4ECCA3;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+.rules {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  width: 60%;
+  font-size: 18px;
+  color: #4ECCA3;
+}
+
+.list {
+  text-align: start;
+}
+
+.more-info {
+  font-size: 14px;
+}
+
+.back {
+  text-align: start;
+  font-size: 18px;
+  margin: 1rem 2rem 0;
+  
+}
+
+
+@media (max-width: 1200px) and (min-width: 961px) {
+  body {
+    background: linear-gradient(300deg, #036515, #03013b, #08001f);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  .dice {
+    width: 49%;
+    margin-bottom: 1.5rem;
+  }
+  
+
+  h1 {
+    margin: 1rem 0px 1.5rem;
+    font-size: 5.5rem;
+  }
+
+  p {
+    font-size: 3.5rem;
+  }
+
+  .name {
+    font-size: 3rem;
+    width: 80%;
+    height: 4rem;
+    margin-bottom: 15px;
+  }
+
+  .name-button {
+    font-size: 3rem;
+    margin-bottom: 3.5rem;
+    width: 50%;
+  }
+
+  .wins {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .player1 {
+    font-size: 2rem;
+  }
+
+  .player2 {
+    font-size: 2rem;
+  }
+
+  img {
+    width: 80%;
+  }
+
+  .rounds-played {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  footer {
+   font-size: 1.5rem;
+   margin-top: 5rem;
+  }
+  hr {
+    width: 35%;
+    margin: 5px auto 5px;
+  
+  }
+
+  .lang-info {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .rules {
+    width: 80%;
+    font-size: 30px;
+  }
+
+  .more-info {
+    font-size: 20px;
+  }
+  
+  .back {
+    text-align: start;
+    font-size: 22px;
+    margin: 1rem 2rem 0;
+    
+  }
+
+}
+
+@media (max-width: 960px) and (min-width: 300px) {
+  body {
+    background: linear-gradient(300deg, #62499d, #013f14, #23012f);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  
+  .dice {
+    width: 49%;
+    margin-bottom: 2rem;
+  }
+  
+
+  h1 {
+    margin: 1rem 0px 2rem;
+    font-size: 5rem;
+  }
+
+  p {
+    font-size: 4rem;
+  }
+
+  .p-emblem {
+    font-size: 5rem;
+  }
+
+  .name {
+    font-size: 2rem;
+    width: 80%;
+    height: 4rem;
+    margin-bottom: 15px;
+  }
+
+  .name-button {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    width: 50%;
+  }
+
+  .wins {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+  }
+
+
+  .player {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+  
+  }
+
+  img {
+    width: 80%;
+  }
+
+  .rounds-played {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+  }
+
+  footer {
+   font-size: 1.5rem;
+   margin-top: 5rem;
+  }
+
+  hr {
+    width: 45%;
+    margin: 5px auto 5px;
+  
+  }
+
+  .lang-info {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .rules {
+    width: 80%;
+    font-size: 30px;
+  }
+
+  .more-info {
+    font-size: 20px;
+  }
+  
+  .back {
+    text-align: start;
+    font-size: 22px;
+    margin: 1rem 2rem 0;
+    
+  }
+
+ 
+}

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dice roll</title>
+  <link rel="stylesheet" href="./styles-e.css">
+  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Dice roll</h1>
+    <div class="dice">
+      <div  class="input input-p1">
+        <input type="text" id="1" class="name name1" autofocus minlength="1" maxlength="12" placeholder="Player name"></input>
+        <input type="submit" class="name-button name1-button" value="Enter"></input>
+      </div>
+      <div class="player player1">
+        <p class="p-emblem p1-emblem"></p>
+        <p class="p1-name"></p>
+      </div>
+      <div>
+        <p class="player1-wins wins">Points: 0</p>
+        <img class="img1" src="../images/dice6.png">
+      </div>
+     
+    </div>
+
+    <div class="dice">
+      <div  class="input input-p2">
+        <input type="text" id="2" class="name name2" minlength="1" maxlength="12" placeholder="Player name"></input>
+        <input type="submit" class="name-button name2-button" value="Enter"></input>
+      </div>
+      <div class="player player2">
+        <p class="p-emblem p2-emblem"></p>
+        <p class="p2-name"></p>
+      </div>
+      <p class="player2-wins wins">Points: 0</p>
+      <img class="img2" src="../images/dice6.png">
+    </div>
+
+    <div class="rounds">
+      <p class="rounds-played">Who will win in 10 rolls?</p>
+    </div>
+
+    <div class="">
+      <button type="button" class="newdraw-button" name="button">*******</button>
+      <button type="button" class="resetgame-button-invisible" name="button">********</button>
+    </div>
+
+    <footer>
+     DON'T BE SAD
+    </footer>
+    <hr>
+
+    <div class="lang-info">
+      <div class="lang"><a href="../index.html" style="color: #EEEEEE">Български</a></div>
+      <div class="info"><a href="./info-e.html" style="color: #EEEEEE">Information</a></div>
+
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="./index-e.js" charset="utf-8"></script>
+</body>
+
+</html>
