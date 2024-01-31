@@ -9,33 +9,62 @@
 </head>
 
 <body>
-    <div class="container">
-        <h1 class="h1-info">Хвърляне на зарове</h1>
-        <div class="rules">
-            <div class="list">
-                <h2>Правила на играта</h2>
-                <ul>
-                    <li>При всяко хвърляне, играча с по-високата цифра на зара получава 1 точка</li>
-                    <li>Заровете с еднаква цифра не носят точки</li>
-                    <li>Играта печели играча с повече точки от 10 хвърляния</li>    
-                </ul>
-            </div>
 
-            <div class="list">
-                <h2>Игра с клавиатурата</h2>
-                <ul>
-                    <li>⏎ - въвеждане името на играча</li>
-                    <p class="more-info">Играта може да започне само след като и двамата играчи въведат имената си</p>
-                    <li>🆁 - хвърляне на заровете</li>
-                    <li>🆂 - нова игра на същите играчи</li>
-                    <p class="more-info">Възможно само след край на текущата игра</p>
-                    <li>🅽 - рестарт на играта, ще можете да въведете нови играчи</li>
-                    <p class="more-info">Възможно само след край на текущата игра</p>
-                </ul>
-            </div>
-            
-        </div>
-        <div class="back"><a href="./index.html" style="color: #d3e1e1">🡰 обратно към играта</a></div>
-        
+  <div class="container">
+    <h1>Хвърляне на зарове</h1>
+    <div class="dice">
+      <div  class="input input-p1">
+        <input type="text" id="1" class="name name1" autofocus minlength="1" maxlength="12" placeholder="Име на играч"></input>
+        <input type="submit" class="name-button name1-button" value="Въведи"></input>
+      </div>
+      <div class="player player1">
+        <p class="p-emblem p1-emblem"></p>
+        <p class="p1-name"></p>
+      </div>
+      <div>
+        <p class="player1-wins wins">Точки: 0</p>
+        <img class="img1" src="images/dice6.png">
+      </div>
+     
     </div>
+
+    <div class="dice">
+      <div  class="input input-p2">
+        <input type="text" id="2" class="name name2" minlength="1" maxlength="12" placeholder="Име на играч"></input>
+        <input type="submit" class="name-button name2-button" value="Въведи"></input>
+      </div>
+      <div class="player player2">
+        <p class="p-emblem p2-emblem"></p>
+        <p class="p2-name"></p>
+      </div>
+      <p class="player2-wins wins">Точки: 0</p>
+      <img class="img2" src="images/dice6.png">
+    </div>
+
+    <div class="rounds">
+      <p class="rounds-played">Кой ще победи от 10 хвърляния?</p>
+    </div>
+
+    <div class="">
+      <button type="button" class="newdraw-button" name="button">*******</button>
+      <button type="button" class="resetgame-button-invisible" name="button">********</button>
+    </div>
+
+    <footer>
+   НЕ СЕ СЪРДИ ЧОВЕЧЕ
+    </footer>
+    <hr>
+
+    <div class="lang-info">
+      <div class="lang"><a href="./English Version/index-e.html" style="color:#EEEEEE">English</a></div>
+      <div class="info"><a href="./info.html" style="color: #EEEEEE;">Информация</a></div>
+
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <script src="index.js" charset="utf-8"></script>
 </body>
+
+</html>
