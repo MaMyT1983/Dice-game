@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Dicee</title>
+  <title>Хвърляне на зарове</title>
   <link rel="stylesheet" href="styles.css">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"> -->
   <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Lobster" rel="stylesheet">
@@ -15,7 +15,7 @@
     <h1>Хвърляне на зарове</h1>
     <div class="dice">
       <div  class="input input-p1">
-        <input type="text" id="1" class="name name1" minlength="1" placeholder="Име на играч"></input>
+        <input type="text" id="1" class="name name1" autofocus minlength="1" maxlength="12" placeholder="Име на играч"></input>
         <input type="submit" class="name-button name1-button" value="Въведи"></input>
       </div>
       <div class="player player1">
@@ -31,7 +31,7 @@
 
     <div class="dice">
       <div  class="input input-p2">
-        <input type="text" id="2" class="name name2" minlength="1" placeholder="Име на играч"></input>
+        <input type="text" id="2" class="name name2" minlength="1" maxlength="12" placeholder="Име на играч"></input>
         <input type="submit" class="name-button name2-button" value="Въведи"></input>
       </div>
       <div class="player player2">
@@ -43,24 +43,29 @@
     </div>
 
     <div class="rounds">
-      <p class="rounds-played">Кой ще победи от 10 рунда?</p>
+      <p class="rounds-played">Кой ще победи от 10 хвърляния?</p>
     </div>
 
     <div class="">
       <button type="button" class="newdraw-button" name="button">*******</button>
       <button type="button" class="resetgame-button-invisible" name="button">********</button>
     </div>
+
+    <footer>
+   НЕ СЕ СЪРДИ ЧОВЕЧЕ
+    </footer>
+    <hr>
+
+    <div class="lang-info">
+      <div class="lang"><a href="./English Version/index-e.html" style="color:#EEEEEE">English</a></div>
+      <div class="info"><a href="./info.html" style="color: #EEEEEE;">Информация</a></div>
+
+    </div>
   </div>
+
 
   <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
   <script src="index.js" charset="utf-8"></script>
-
-  </script>
-
 </body>
-
-<footer>
-  "НЕ СЕ СЪРДИ ЧОВЕЧЕ"
-</footer>
 
 </html>
